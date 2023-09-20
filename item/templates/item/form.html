@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% block title %}Create a New Item{% endblock %}
+{% block content %}
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class="mb-12 text-2xl text-center">Create a New Item</h2>
+  <form method="post" class="w-full max-w-md mx-auto" enctype="multipart/form-data">
+
+    {{ form.errors }}
+
+    <div class="mb-4">
+        {{ form.category.label_tag }}
+        {{ form.category }}
+    </div>
+    
+    <div class="mb-4">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+    </div>
+    
+    <div class="mb-4">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+    </div>
+    
+    <div class="mb-4">
+        {{ form.price.label_tag }}
+        {{ form.price }}
+    </div>
+    
+    <div class="mb-4">
+        {{ form.imageFile.label_tag }}
+        {{ form.imageFile }}
+    </div>
+    
+    {{ form.csrf_token }}
+
+    <button class="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline" type="submit">
+      Create Item
+    </button>
+
+  </form>
+</div>
+{% endblock %}

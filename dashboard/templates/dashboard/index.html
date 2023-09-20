@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class="mb-12 text-2xl text-center">My items</h2>
+  <div class="grid grid-cols-3 gap-3">
+    {% for i in items %}
+    <div>
+      <a href="{% url 'item:detail' i.id %}">
+        <div class="bg-white rounded-t-xl overflow-hidden" style="height: 250px; width: 100%; max-width: 100%;">
+          {% if i.image.url %}
+          <img src="{{ i.image.url }}" alt="item" class="w-full h-full object-cover">
+          {% else %}
+          <div class="w-full h-full flex items-center justify-center bg-gray-300">
+            <span class="fas fa-camera fa-5x text-gray-500">📷</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="p-6 bg-white rounded-b-xl">
+          <h2 class="text-2xl">{{ i.name }}</h2>
+          <p class="text-gray-500">Price: {{ i.price }}</p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
