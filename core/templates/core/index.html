@@ -8,7 +8,7 @@
     {% for item in items %}
     <div>
       <a href="{% url 'item:detail' item.id %}">
-        <div class="bg-white rounded-t-xl overflow-hidden" style="height: 250px; width: 100%; max-width: 100%;">
+        <div class="bg-white rounded-t-xl overflow-hidden" style="height: 350px; width: 100%; max-width: 100%;">
           {% if item.image %}
           <img src="{{ item.image.url }}" alt="item" class="w-full h-full object-cover" />
           {% else %}
