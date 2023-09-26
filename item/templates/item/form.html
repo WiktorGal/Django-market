@@ -8,31 +8,31 @@
     {{ form.errors }}
 
     <div class="mb-4">
-        {{ form.category.label_tag }}
-        {{ form.category }}
+      {{ form.category.label_tag }}
+      {{ form.category }}
     </div>
     
     <div class="mb-4">
-        {{ form.name.label_tag }}
-        {{ form.name }}
+      {{ form.name.label_tag }}
+      {{ form.name }}
     </div>
     
     <div class="mb-4">
-        {{ form.description.label_tag }}
-        {{ form.description }}
+      {{ form.description.label_tag }}
+      {{ form.description }}
     </div>
     
     <div class="mb-4">
-        {{ form.price.label_tag }}
-        {{ form.price }}
+      {{ form.price.label_tag }}
+      {{ form.price }}
     </div>
     
     <div class="mb-4">
-        {{ form.imageFile.label_tag }}
-        {{ form.imageFile }}
+      {{ form.image.label_tag }}
+      {{ form.image }}
     </div>
     
-    {{ form.csrf_token }}
+    {% csrf_token %}
 
     <button class="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline" type="submit">
       Create Item

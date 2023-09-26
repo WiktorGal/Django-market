@@ -33,6 +33,6 @@ class EditItemFrom(forms.ModelForm):
                 'class': INPUT_CLASSES
             }),
             'image': forms.FileInput(attrs={
-                'class': INPUT_CLASSES
+                'class': 'w-full py-2 px-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-400'  # Corrected class here
             })
         }
