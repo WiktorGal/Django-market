@@ -2,7 +2,7 @@
 {% block title %} Browse {% endblock %}
 {% block content %}
 
-<div class="pb-6 pt-3 grid grid-cols-4 gap-4 bg-gray-100 rounded-xl">
+<div class="pb-6 pl-3 h-auto pt-3 grid grid-cols-4 gap-4 bg-gray-100 rounded-xl">
   <div class="col-span-1">
     <form action="{% url 'item:items' %}" method="get">
       <input
@@ -49,9 +49,9 @@
       {% for i in items %}
       <div>
         <a href="{% url 'item:detail' i.id %}">
-          <div class="bg-white rounded-t-xl overflow-hidden" style="height: 250px; width: 100%; max-width: 100%;">
-            {% if i.image.url %}
-            <img src="{{ i.image.url }}" alt="item" class="w-full h-full object-cover" />
+          <div class="bg-white rounded-t-xl overflow-hidden h-96">
+            {% if i.image %}
+            <img src="{{ i.image.url }}" alt="item" class="mx-auto h-full object-cover" />
             {% else %}
             <div class="w-full h-full flex items-center justify-center bg-gray-300">
               <span class="fas fa-camera fa-5x text-gray-500">📷</span>

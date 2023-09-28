@@ -2,7 +2,13 @@
 {% block content %}
 <div class="grid grid-cols-5 gap-6">
   <div class="col-span-3">
-    <img class="rounded-xl mx-auto" src="{{ item.image.url }}" alt="image" />
+    {% if item.image %}
+    <img src="{{ item.image.url }}" alt="Item image" class="mx-auto h-full object-cover" style="height: 550px;">
+    {% else %}
+      <div class="w-full h-full flex items-center justify-center bg-gray-300"style="height: 550px;">
+        <span class="fas fa-camera fa-5x text-gray-500">📷</span>
+      </div>
+    {% endif %}
   </div>
 
   <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
@@ -40,16 +46,22 @@
   </div>
 </div>
 
-<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-  <h2 class="mb-12 text-2xl text-center">Related items</h2>
+<div class="mt-6  px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class=" text-2xl text-center">Related items</h2>
   <div class="grid grid-cols-3 gap-3">
     {% for i in related_items %}
     <div>
       <a href="{% url 'item:detail' i.id %}">
-        <div class="bg-white rounded-t-xl">
-          <img src="{{ i.image.url }}" alt="item" class="mx-auto" />
+        <div class="bg-white rounded-t-xl overflow-hidden h-80">
+          {% if i.image %}
+          <img src="{{ i.image.url }}" alt="Item image" class="mx-auto h-full object-cover">
+          {% else %}
+            <div class="w-full h-full flex items-center justify-center bg-gray-300">
+              <span class="fas fa-camera fa-5x text-gray-500">📷</span>
+            </div>
+          {% endif %}
         </div>
-        <div class="p-6 bg-white rounded-b-xl">
+        <div class="p-6 bg-white rounded-b-xl ">
           <h2 class="text-2xl">{{ i.name }}</h2>
           <p class="text-gray-500">Price: {{ i.price }}</p>
         </div>
@@ -58,5 +70,8 @@
     {% endfor %}
   </div>
 </div>
+
+
+
 
 {% endblock %}
